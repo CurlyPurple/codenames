@@ -168,6 +168,7 @@ let assassinWords = []
 let bystanderWords = []
 let clueWords = []
 let wordsUsedGame = []
+let board
 
 
 
@@ -201,16 +202,16 @@ const countdownEl = document.getElementById("countdown")
 //     console.log(wordPool[wordsUsed[i]][randomIndex]); used to get clues
 
 
-const assignWords = (pullWords) => {
-    for (i = 0; i < pullWords.length; i++) {
+const assignWords = (wordsUsed) => {
+    for (i = 0; i < wordsUsed.length; i++) {
         if (i < 9) {
-            winningWords = pullWords[i]
+            winningWords = wordsUsed[i]
         } else if (i = 9 && i < 16) {
-            bystanderWords = pullWords[i]
+            bystanderWords = wordsUsed[i]
         } else {
-            assassinWords = pullWords[i]
+            assassinWords = wordsUsed[i]
         }
-    }
+    } 
 }
 const groupClueWords = () => {
     const wordsAndClues = wordPool.filter(pullWords)
@@ -219,6 +220,12 @@ const groupClueWords = () => {
 
     }
 }
+
+
+    cardEls.forEach((card, idx) => {
+        cardEls[idx].textContent = winningWords[idx]
+    });
+
 
 // let timeLeft = 10
 
