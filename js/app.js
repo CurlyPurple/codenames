@@ -182,13 +182,22 @@ const countdownEl = document.getElementById("countdown")
 
 /*-------------------------------- Functions --------------------------------*/
 
-const pullWords = (wordPool) => {
+//const pullWords = () => {
     let wordsUsed = Object.keys(wordPool)
-    for (i = 0; i < 17; i++ ) {
-    console.log(Math.floor(Math.random(wordsUsed[i])))
+    for (i = 0; i < wordsUsed.length; i++ ) {
+    let randomIndex = Math.floor(Math.random() * wordsUsed[i].length)
+        winningWords.push(wordsUsed[randomIndex])
+        if (winningWords.some() === wordsUsed[randomIndex].some()) {
+            continue
+        }
+    console.log(winningWords);
     }
-}
-console.log((pullWords))
+    console.log(Object.keys(wordPool));
+//}
+//let wordsUsed = Object.keys(wordPool)
+// for (i = 0; i < 16; i++ ) {
+//     let randomIndex = Math.floor(Math.random() * wordPool[wordsUsed[i]].length)
+//     console.log(wordPool[wordsUsed[i]][randomIndex]); used to get clues
 
 
 const assignWords = (pullWords) => {
