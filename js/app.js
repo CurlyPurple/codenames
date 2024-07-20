@@ -167,6 +167,8 @@ console.log(wordPool)
 let winningWords =[]
 let assassinWords = []
 let bystanderWords = []
+let clueWords = []
+
 
 
 
@@ -176,9 +178,20 @@ let bystanderWords = []
 
 /*-------------------------------- Functions --------------------------------*/
 
+const pullWords = () => {}
+const assignWords = () => {}
+const groupClueWords = () => {}
+const cardAction = () => {}
+const help = () => {}
+const render = () => {}
+const play = () => {}
+
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 
+document.querySelector('#cards').addEventListener('click', cardAction)
+document.querySelector('start').addEventListener('click', play)
+document.querySelector('help').addEventListener('click', help)
 
 
