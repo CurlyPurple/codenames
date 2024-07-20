@@ -176,6 +176,7 @@ const cardEls = document.querySelectorAll(".card")
 const messageEl = document.querySelector("#message")
 const playAgainBtn = document.getElementById("reset")
 const helpSpyBtn = document.getElementById("help")
+const countdownEl = document.getElementById("countdown")
 
 
 
@@ -205,15 +206,40 @@ const groupClueWords = () => {
     const wordsAndClues = wordPool.filter(pullWords)
     //want to check for matching clue words
     if (wordsAndClues.includes()) {
-        
+
     }
 }
+
+// let timeLeft = 10
+
+// let timerInterval
+// startTimer()
+
+// function startTimer() {
+//     timerInterval = setInterval(tick, 1000)
+//   }
+  
+//   function tick() {
+//     timeLeft -= 1
+//     console.log(timeLeft)
+//    // countdownEl.textContent = timeLeft
+//     if (timeLeft === 10) {
+//         //make help button clickable
+//         //when clicked, make time count down 1 second every 3 seconds
+
+//     }
+//     if (timeLeft === 0) {
+//       messageEl.textContent = "Maybe Next Time"
+//       clearInterval(timerInterval)
+//     }
+//   }
 
 console.log()
 const cardAction = () => {}
 const help = () => {}
 const render = () => {}
 const play = () => {}
+
 
 
 
