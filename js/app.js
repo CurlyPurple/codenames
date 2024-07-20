@@ -1,7 +1,6 @@
-console.log('test');
 
 /*-------------------------------- Constants --------------------------------*/
-const wordPool = [{
+const wordPool = {
     theory: ['approach', 'argument', 'assumption', 'concept', 'idea', 'ideology',
     'method','philosophy','plan','position','premise','proposal','rationale', 'speculation', 
     'suspicion', 'system', 'thesis', 'understanding', 'basis', 'feeling', 'guess', 'hunch',
@@ -157,30 +156,60 @@ const wordPool = [{
     war: ['wounds', 'wound', 'military', 'fight', 'combat', 'battle', 'conflict', 'struggle', 'peace', 'invasion', 'weapon', 'death', 'crisis', 
     'campaign', 'civil', 'world', 'strategy', 'zone', 'nuclear', 'cold', 'machine', 'violence', 'win', 'lose', 'declare', 'anti', 'army', 
     'soldier', 'lord', 'aftermath', 'destruction', 'prisoner']
-}]
+}
 
 
 
-console.log(wordPool)
+// console.log(wordPool)
 
 /*---------------------------- Variables (state) ----------------------------*/
 let winningWords =[]
 let assassinWords = []
 let bystanderWords = []
 let clueWords = []
-
+let wordsUsedGame = []
 
 
 
 /*------------------------ Cached Element References ------------------------*/
+const cardEls = document.querySelectorAll(".card")
+const messageEl = document.querySelector("#message")
+const playAgainBtn = document.getElementById("reset")
+const helpSpyBtn = document.getElementById("help")
 
 
 
 /*-------------------------------- Functions --------------------------------*/
 
-const pullWords = () => {}
-const assignWords = () => {}
-const groupClueWords = () => {}
+const pullWords = (wordPool) => {
+    let wordsUsed = Object.keys(wordPool)
+    for (i = 0; i < 17; i++ ) {
+    console.log(Math.floor(Math.random(wordsUsed[i])))
+    }
+}
+console.log((pullWords))
+
+
+const assignWords = (pullWords) => {
+    for (i = 0; i < pullWords.length; i++) {
+        if (i < 9) {
+            winningWords = pullWords[i]
+        } else if (i = 9 && i < 16) {
+            bystanderWords = pullWords[i]
+        } else {
+            assassinWords = pullWords[i]
+        }
+    }
+}
+const groupClueWords = () => {
+    const wordsAndClues = wordPool.filter(pullWords)
+    //want to check for matching clue words
+    if (wordsAndClues.includes()) {
+        
+    }
+}
+
+console.log()
 const cardAction = () => {}
 const help = () => {}
 const render = () => {}
@@ -190,8 +219,8 @@ const play = () => {}
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-document.querySelector('#cards').addEventListener('click', cardAction)
-document.querySelector('start').addEventListener('click', play)
-document.querySelector('help').addEventListener('click', help)
+// document.querySelector('#cards').addEventListener('click', cardAction)
+// document.querySelector('start').addEventListener('click', play)
+// document.querySelector('help').addEventListener('click', help)
 
 
