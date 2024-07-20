@@ -184,17 +184,12 @@ const countdownEl = document.getElementById("countdown")
 
 //const pullWords = () => {
     let wordsUsed = Object.keys(wordPool)
-    for (i = 0; i < 16; i++ ) {
+    for (i = 0; winningWords.length < 16; i++ ) {
     let randomIndex = Math.floor(Math.random() * wordsUsed.length)
-        if (randomIndex === randomIndex) {
-        winningWords.push(wordsUsed[randomIndex])
-        } else {
-            continue
-        }
-        // if (winningWords.some() === wordsUsed[randomIndex].some()) {
-        //     continue
-        // }
-        console.log(randomIndex)
+        if (!winningWords.includes(wordsUsed[randomIndex])) {
+            winningWords.push(wordsUsed[randomIndex])
+        } else {}
+        console.log(wordsUsed[randomIndex])
         console.log(winningWords);
     
     }
