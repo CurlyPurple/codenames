@@ -185,16 +185,16 @@ const countdownEl = document.getElementById("countdown")
 
 //const pullWords = () => {
     let wordsUsed = Object.keys(wordPool)
-    for (i = 0; winningWords.length < 16; i++ ) {
+    for (i = 0; wordsUsedGame.length < 16; i++ ) {
     let randomIndex = Math.floor(Math.random() * wordsUsed.length)
-        if (!winningWords.includes(wordsUsed[randomIndex])) {
-            winningWords.push(wordsUsed[randomIndex])
+        if (!wordsUsedGame.includes(wordsUsed[randomIndex])) {
+            wordsUsedGame.push(wordsUsed[randomIndex])
         } else {}
-        console.log(wordsUsed[randomIndex])
-        console.log(winningWords);
+      //  console.log(wordsUsed[randomIndex])
+       // console.log(wordsUsedGame);
     
     }
-    console.log(Object.keys(wordPool));
+   // console.log(Object.keys(wordPool));
 //}
 //let wordsUsed = Object.keys(wordPool)
 // for (i = 0; i < 16; i++ ) {
@@ -202,17 +202,33 @@ const countdownEl = document.getElementById("countdown")
 //     console.log(wordPool[wordsUsed[i]][randomIndex]); used to get clues
 
 
-const assignWords = (wordsUsed) => {
-    for (i = 0; i < wordsUsed.length; i++) {
-        if (i < 9) {
-            winningWords = wordsUsed[i]
-        } else if (i = 9 && i < 16) {
-            bystanderWords = wordsUsed[i]
-        } else {
-            assassinWords = wordsUsed[i]
+// const assignWords = (wordsUsedGame) => {
+    for ( i = 0; winningWords.length + bystanderWords.length + assassinWords.length < 16; i++) {
+    let randomGameIndex = Math.floor(Math.random() * wordsUsedGame.length)
+        if ((!winningWords.includes(wordsUsedGame[randomGameIndex])) && winningWords.length < 8) {
+            winningWords.push(wordsUsedGame[randomGameIndex])
+        } else if ((!bystanderWords.includes(wordsUsedGame[randomGameIndex])) && (!winningWords.includes(wordsUsedGame[randomGameIndex])) && bystanderWords.length < 7) {
+                bystanderWords.push(wordsUsedGame[randomGameIndex])} 
+                else if ((!bystanderWords.includes(wordsUsedGame[randomGameIndex])) && (!winningWords.includes(wordsUsedGame[randomGameIndex])))
+        {
+            assassinWords.push(wordsUsedGame[randomGameIndex])
         }
-    } 
-}
+        console.log(wordsUsedGame[randomGameIndex])
+    }
+    console.log(winningWords)
+    console.log(bystanderWords)
+    console.log(assassinWords)
+ //}
+//     for (i = 0; i < wordsUsedGame.length; i++) {
+//         if (i < 9) {
+//             winningWords = wordsUsedGame[i]
+//         } else if (i = 9 && i < 16) {
+//             bystanderWords = wordsUsedGame[i]
+//         } else {
+//             assassinWords = wordsUsedGame[i]
+//         }
+//     } 
+// }
 const groupClueWords = () => {
     const wordsAndClues = wordPool.filter(pullWords)
     //want to check for matching clue words
@@ -223,7 +239,7 @@ const groupClueWords = () => {
 
 
     cardEls.forEach((card, idx) => {
-        cardEls[idx].textContent = winningWords[idx]
+        cardEls[idx].textContent = wordsUsedGame[idx]
     });
 
 
