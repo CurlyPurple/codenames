@@ -194,12 +194,6 @@ const countdownEl = document.getElementById("countdown")
        // console.log(wordsUsedGame);
     
     }
-   // console.log(Object.keys(wordPool));
-//}
-//let wordsUsed = Object.keys(wordPool)
-// for (i = 0; i < 16; i++ ) {
-//     let randomIndex = Math.floor(Math.random() * wordPool[wordsUsed[i]].length)
-//     console.log(wordPool[wordsUsed[i]][randomIndex]); used to get clues
 
 
 // const assignWords = (wordsUsedGame) => {
@@ -218,17 +212,7 @@ const countdownEl = document.getElementById("countdown")
     console.log(winningWords)
     console.log(bystanderWords)
     console.log(assassinWords)
- //}
-//     for (i = 0; i < wordsUsedGame.length; i++) {
-//         if (i < 9) {
-//             winningWords = wordsUsedGame[i]
-//         } else if (i = 9 && i < 16) {
-//             bystanderWords = wordsUsedGame[i]
-//         } else {
-//             assassinWords = wordsUsedGame[i]
-//         }
-//     } 
-// }
+
 const groupClueWords = () => {
     const wordsAndClues = wordPool.filter(pullWords)
     //want to check for matching clue words
