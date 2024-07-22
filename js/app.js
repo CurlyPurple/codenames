@@ -166,7 +166,9 @@ const wordPool = {
 let winningWords =[]
 let assassinWords = []
 let bystanderWords = []
-let clueWords = []
+let winningClueWords = []
+let bystanderClueWords = []
+let assassinClueWords = []
 let wordsUsedGame = []
 let board
 
@@ -207,19 +209,44 @@ const countdownEl = document.getElementById("countdown")
         {
             assassinWords.push(wordsUsedGame[randomGameIndex])
         }
-        console.log(wordsUsedGame[randomGameIndex])
+        // console.log(wordsUsedGame[randomGameIndex])
     }
-    console.log(winningWords)
-    console.log(bystanderWords)
-    console.log(assassinWords)
+    // console.log(winningWords)
+    // console.log(bystanderWords)
+    // console.log(assassinWords)
 
-const groupClueWords = () => {
-    const wordsAndClues = wordPool.filter(pullWords)
-    //want to check for matching clue words
-    if (wordsAndClues.includes()) {
+//const groupClueWords = () => {
+    // if (wordPool.includes(winningWords)) {
+    //     let clueWords = Object.values(wordPool)
+    // }
 
-    }
-}
+    winningWords.forEach((winningWord) => {
+        if (Object.keys(wordPool).includes(winningWord)) {
+            winningClueWords.push(Object.values(wordPool[winningWord]))
+        }
+    })
+
+    bystanderWords.forEach((bystanderWord) => {
+        if (Object.keys(wordPool).includes(bystanderWord)) {
+            bystanderClueWords.push(Object.values(wordPool[bystanderWord]))
+        }
+    })
+
+    assassinWords.forEach((assassinWord) => {
+        if (Object.keys(wordPool).includes(assassinWord)) {
+            assassinClueWords.push(Object.values(wordPool[assassinWord]))
+        }
+    })
+
+    console.log(assassinClueWords);
+    console.log(assassinWords);
+    console.log(bystanderClueWords);
+    console.log(bystanderWords);
+    console.log(winningClueWords);
+    console.log(winningWords);
+console.log(Object.values(wordPool))
+    
+//}
 
 
     cardEls.forEach((card, idx) => {
