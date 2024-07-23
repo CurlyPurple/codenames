@@ -249,17 +249,22 @@ const wordPool = {
 
 /*---------------------------- Variables (state) ----------------------------*/
 let winningWords =[]
-let assassinWords = []
-let bystanderWords = []
-let winningClueWords = []
-let bystanderClueWords = []
-let assassinClueWords = []
-let wordsUsedGame = []
-let allClueWords = []
-let allClues = []
-let winningsClues = []
+let assassinWords =[]
+let bystanderWords =[]
+let winningClueWords =[]
+let bystanderClueWords =[]
+let assassinClueWords =[]
+let wordsUsedGame =[]
+let allBystanderClues =[]
+let allWinningClues =[]
+let allClueWords
+let allClues
+let winningsClues
 let board
-
+let message
+let clues = []
+let count = []
+let pickedCard = []
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -277,16 +282,16 @@ const choiceThree = document.getElementById('#three')
 
 /*-------------------------------- Functions --------------------------------*/
 
-// function pullWords(arr) {
+function pullWords(wordPool) {
     const wordsUsed = Object.keys(wordPool)
     for (i = 0; wordsUsedGame.length < 16; i++ ) {
     let randomIndex = Math.floor(Math.random() * wordsUsed.length)
         if (!wordsUsedGame.includes(wordsUsed[randomIndex])) {
             wordsUsedGame.push(wordsUsed[randomIndex])
-        } else {}
+        }
     }
-
-// const assignWords = (wordsUsedGame) => {
+}
+function assignWords() {
     for ( i = 0; winningWords.length + bystanderWords.length + assassinWords.length < 16; i++) {
     let randomIndex = Math.floor(Math.random() * wordsUsedGame.length)
         if ((!winningWords.includes(wordsUsedGame[randomIndex])) && winningWords.length < 8) {
@@ -295,49 +300,47 @@ const choiceThree = document.getElementById('#three')
                 bystanderWords.push(wordsUsedGame[randomIndex])} 
                 else if ((!bystanderWords.includes(wordsUsedGame[randomIndex])) && (!winningWords.includes(wordsUsedGame[randomIndex])))
         {
-            assassinWords.push(wordsUsedGame[randomIndex])
+             assassinWords.push(wordsUsedGame[randomIndex])
         }
     }
+}
 
+ function groupWClueWords() {
     winningWords.forEach((winningWord) => {
         if (Object.keys(wordPool).includes(winningWord)) {
             winningClueWords.push(wordPool[winningWord])
+            
         }
-    })
+    }) 
+    let allWinningClues = winningClueWords.flat()
+}
 
+function groupBClueWords() {
     bystanderWords.forEach((bystanderWord) => {
         if (Object.keys(wordPool).includes(bystanderWord)) {
-            bystanderClueWords.push(wordPool[bystanderWord])
+              bystanderClueWords.push(wordPool[bystanderWord])
         }
     })
+    let allBystanderClues = bystanderClueWords.flat()
+}
 
+function groupAClueWords() {
     assassinWords.forEach((assassinWord) => {
         if (Object.keys(wordPool).includes(assassinWord)) {
-            assassinClueWords.push(wordPool[assassinWord])
+               assassinClueWords.push(wordPool[assassinWord])
         }
     })
+}
 
-
-//const groupClueWords = () => {
-    
-    let allWinningClues = winningClueWords.flat()
-    let allBystanderClues = bystanderClueWords.flat()
-    
-
-    let clues = []
+function cluesDisplayed() {
     for (i = 0; i < allWinningClues.length; i++) {
         let randomIndex = Math.floor(Math.random() * allWinningClues.length)
         if (!assassinClueWords.includes(allWinningClues[randomIndex]) && !allBystanderClues.includes(allWinningClues[randomIndex])) {
-           clues.push(allWinningClues[randomIndex])
-        } else {}
+             clues.push(allWinningClues[randomIndex])
+        }
     }
 
-        console.log(allWinningClues);
-        console.log(clues);
-        console.log(allBystanderClues);
-        console.log(assassinClueWords);
-
-        const count = {}
+    const count = {}
         clues.forEach((word) => {
             if (count[word]) {
                 count[word] += 1
@@ -346,22 +349,42 @@ const choiceThree = document.getElementById('#three')
             }
         })
        
+    let randomIndex = Math.floor(Math.random() * clues.length)
+        if (Object.keys(count).includes(clues[randomIndex])) {
+            console.log(`Clue: ${clues[randomIndex]}, Words to be Guessed: ${count[clues[randomIndex]]}`)
+         }
+}
 
-            let randomIndex = Math.floor(Math.random() * clues.length)
-                if (Object.keys(count).includes(clues[randomIndex])) {
-                   console.log(`Clue: ${clues[randomIndex]}, Words to be Guessed: ${count[clues[randomIndex]]}`)
-                }
-            console.log(clues[randomIndex]);
-            console.log(Object.keys(count));
-            console.log(count);
-            console.log(count[clues[randomIndex]]);
+    function getPickedCard(event) {
+     pickedCard = event.target.id
+     let message = ''
+     console.log(pickedCard);
+    }
+
+    if (assassinWords.includes(pickedCard)) {
+     message = `Unfortunately ${'click'} is the Assassin Card. Game Over!`
+    } else if (bystanderWords.includes(pickedCard)) {
+     message = `Ooh! ${'click'} is a Bystander Card. Round Over! Next Clue`
+    } else if (winningWords.includes(pickedCard)) {
+     message = `${'click'} is right! Great Job!`
+    }
         
 
     cardEls.forEach((card, idx) => {
         cardEls[idx].textContent = wordsUsedGame[idx]
+        cardEls[idx].addEventListener('click',getPickedCard)
     });
 
-
+    const play = (event) => {
+        pullWords(wordPool)
+        assignWords()
+        groupWClueWords()
+        groupBClueWords()
+        groupAClueWords()
+        cluesDisplayed()
+    }
+    console.log(clues);
+    play()
 // let timeLeft = 10
 
 // let timerInterval
@@ -386,17 +409,32 @@ const choiceThree = document.getElementById('#three')
 //     }
 //   }
 
-console.log()
-const cardAction = () => {}
-const help = () => {}
-const render = () => {}
-const play = () => {}
+// console.log()
+// const cardAction = () => {}
+// const help = () => {}
+// const render = () => {}
+// const play = () => {}
 
 
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-// document.querySelector('#cards').addEventListener('click', cardAction)
+// document.querySelector('#0').addEventListener('click', cardAction)
+// document.querySelector('#1').addEventListener('click', cardAction)
+// document.querySelector('#2').addEventListener('click', cardAction)
+// document.querySelector('#3').addEventListener('click', cardAction)
+// document.querySelector('#4').addEventListener('click', cardAction)
+// document.querySelector('#5').addEventListener('click', cardAction)
+// document.querySelector('#6').addEventListener('click', cardAction)
+// document.querySelector('#7').addEventListener('click', cardAction)
+// document.querySelector('#8').addEventListener('click', cardAction)
+// document.querySelector('#9').addEventListener('click', cardAction)
+// document.querySelector('#10').addEventListener('click', cardAction)
+// document.querySelector('#11').addEventListener('click', cardAction)
+// document.querySelector('#12').addEventListener('click', cardAction)
+// document.querySelector('#13').addEventListener('click', cardAction)
+// document.querySelector('#14').addEventListener('click', cardAction)
+// document.querySelector('#15').addEventListener('click', cardAction)
 // document.querySelector('start').addEventListener('click', play)
 // document.querySelector('help').addEventListener('click', help)
