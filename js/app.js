@@ -106,7 +106,7 @@ const wordPool = {
     'adjective', 'idea', 'suspect', 'about', 'transcript', 'parapgraph', 'type', 'write', 'intro', 'page', 'summary',
     'review', 'visual', 'visualize', 'quote', 'language', 'model', 'framework', 'concept', 'depiction', 'catalog', 'profile',
     'document', 'inventory', 'menu', 'presentation', 'introduction', 'post','vague','paper'],
-    love: ['bond', 'intimacy', 'adore', 'romance', 'passion', 'emotion', 'heart', 'kiss', 'cupid', 'affection', 'devotion', 
+    love: ['intimacy','bond',  'adore', 'romance', 'passion', 'emotion', 'heart', 'kiss', 'cupid', 'affection', 'devotion', 
     'valentines', 'obsession', 'together', 'bird', 'rose', 'feeling', 'dream', 'song', 'sex', 'god', 'commitment', 'support',
     'interest', 'marry', 'hormones', 'gift', 'language', 'fear', 'people', 'partner', 'self', 'flirty', 'fall', 'affair', 'support',
     'comfort', 'nourishment', 'reunion','gathering','obsessed','greed','abundant','dopamine','heartbreak','aficionado',
@@ -192,7 +192,7 @@ const wordPool = {
     'demand', 'guideline', 'guidelines', 'minimum', 'limit', 'limitation', 'mandate', 'standard', 'standards', 'rules', 'threshold', 'clause', 
     'qualification', 'qualifications', 'condition', 'measure', 'fulfill', 'criteria', 'stipulation', 'needs', 'job', 'basic', 'specification', 
     'criterion', 'compliance', 'provision',''],
-    chest: ['heart','plate', 'neck', 'torso', 'back', 'lungs', 'lung', 'breast', 'body', 'box', 'treasure', 'cavity', 'trunk', 'compartment', 
+    chest: [ 'neck','heart','plate', 'torso', 'back', 'lungs', 'lung', 'breast', 'body', 'box', 'treasure', 'cavity', 'trunk', 'compartment', 
     'loot', 'pirate', 'key', 'skin', 'anatomy', 'wound', 'beat', 'muscle', 'grow', 'pectoral', 'toy', 'tool', 'vault', 'container', 
     'victory', 'reward', 'storage', 'full', 'belly', 'collapse','pacemaker'],
     personality: ['character', 'identity', 'attitude', 'trait', 'ego', 'individual', 'charisma', 'charm', 'self', 'demeanor', 'humor',
@@ -256,6 +256,8 @@ let winningClueWords = []
 let bystanderClueWords = []
 let assassinClueWords = []
 let wordsUsedGame = []
+let allClueWords = []
+let clueWordTimes
 let board
 
 
@@ -308,21 +310,31 @@ const countdownEl = document.getElementById("countdown")
 
     winningWords.forEach((winningWord) => {
         if (Object.keys(wordPool).includes(winningWord)) {
-            winningClueWords.push(Object.values(wordPool[winningWord]))
+            winningClueWords.push(wordPool[winningWord])
         }
     })
 
     bystanderWords.forEach((bystanderWord) => {
         if (Object.keys(wordPool).includes(bystanderWord)) {
-            bystanderClueWords.push(Object.values(wordPool[bystanderWord]))
+            bystanderClueWords.push(wordPool[bystanderWord])
         }
     })
 
     assassinWords.forEach((assassinWord) => {
         if (Object.keys(wordPool).includes(assassinWord)) {
-            assassinClueWords.push(Object.values(wordPool[assassinWord]))
+            assassinClueWords.push(wordPool[assassinWord])
         }
     })
+    wordsUsedGame.forEach((wordUsedGame) => {
+    if (Object.keys(wordPool).includes(wordUsedGame)) {
+        allClueWords.push(wordPool[wordUsedGame])
+    }
+})
+
+    console.log(clueWordTimes);
+    console.log(allClueWords);
+    //count number of times a certain clueword is present in each word
+     clueWordTimes = 
 
     console.log(assassinClueWords);
     console.log(assassinWords);
@@ -378,5 +390,3 @@ const play = () => {}
 // document.querySelector('#cards').addEventListener('click', cardAction)
 // document.querySelector('start').addEventListener('click', play)
 // document.querySelector('help').addEventListener('click', help)
-
-
