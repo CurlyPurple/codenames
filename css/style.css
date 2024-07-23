@@ -32,8 +32,8 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     width: 56.25em; 
-    justify-content: center;
-    margin-left: 260px;
+    margin-left: 11.5em;
+    
     gap: 10px;
 }
 .card {
@@ -48,5 +48,22 @@ h1 {
     font-weight: bold;
 }
 
-button {
+.choices {
+   text-align: center;
+}
+
+#one {
+    border-radius: 8px;
+    width: 3em;
+    height: 2.8em;
+}
+#two {
+    border-radius: 8px;
+    width: 3em;
+    height: 2.8em;
+}
+#three {
+    border-radius: 8px;
+    width: 3em;
+    height: 2.8em;
 }

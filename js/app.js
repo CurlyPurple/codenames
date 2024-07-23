@@ -257,7 +257,8 @@ let bystanderClueWords = []
 let assassinClueWords = []
 let wordsUsedGame = []
 let allClueWords = []
-let clueWordTimes
+let allClues = []
+let winningsClues = []
 let board
 
 
@@ -325,24 +326,50 @@ const countdownEl = document.getElementById("countdown")
             assassinClueWords.push(wordPool[assassinWord])
         }
     })
-    //     wordsUsedGame.forEach((wordUsedGame) => {
-    //         if (Object.keys(wordPool).includes(wordUsedGame)) {
-    //     allClueWords.push(wordPool[wordUsedGame])
-    // }
-    // })
-       let winningClueWordCount = {}
-        winningClueWords.forEach((winningClueWord) => {
-            winningClueWordCount[winningClueWord] = (winningClueWordCount[winningClueWord] || 0) + 1
-        })
+        wordsUsedGame.forEach((wordUsedGame) => {
+            if (Object.keys(wordPool).includes(wordUsedGame)) {
+        allClueWords.push(wordPool[wordUsedGame])
+    }
+    })
 
-        console.log(winningClueWordCount);
+    allClues = allClueWords.flat()
+    const clueWordCount = {}
+    allClues.forEach((clueWord) => {
+        if (clueWordCount[clueWord]) {
+            clueWordCount[clueWord]++
+        } else {
+            clueWordCount[clueWord] = 1
+        }
+    })
+   
+    // const pickClueWord = () => {
+    //     if (btn.addEventListener = 3) {
+                
+    //     } else if (btn.addEventListener = 2) {
+      //  }
+    // }    else if (btn.addEventListener = 1) {
+                
+    //}
+
+    if (Object.values(clueWordCount) > 1) {
+        console.log(clueWordCount);
+        }
+        console.log(clueWordCount);
+
+        // if (Object.values(clueWordCount > 1)) {
+        // console.log(clueWordCount);
+        // }
+
+
+    console.log(allClues);
+    console.log(allClueWords);
     console.log(assassinClueWords);
     console.log(assassinWords);
     console.log(bystanderClueWords);
     console.log(bystanderWords);
     console.log(winningClueWords);
     console.log(winningWords);
-console.log(Object.values(wordPool))
+
     
 //}
 
