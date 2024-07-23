@@ -20,12 +20,14 @@ h1 {
     font-weight: bold;
     padding: 10px;
     font-size: large;
+    border-radius: 4px;
 }
 
 #help {
     font-weight: bold;
     padding: 10px;
     font-size: large;
+    border-radius: 4px;
 }
 
 .board {
@@ -33,7 +35,6 @@ h1 {
     flex-wrap: wrap;
     width: 56.25em; 
     margin-left: 11.5em;
-    
     gap: 10px;
 }
 .card {

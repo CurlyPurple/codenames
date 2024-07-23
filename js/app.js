@@ -99,8 +99,7 @@ const wordPool = {
     'relevance', 'concatenation', 'communication', 'hookup', 'friend', 'friendship', 'affiliation', 'incompatible',
     'intimacy', 'together', 'history', 'correlation', 'internet', 'spark', 'ping', 'sync', 'conversation', 'economics',
     'feeling', 'interaction', 'parallels', 'signal', 'service', 'port', 'network', 'close', 'performance', 'exchange',
-    'bad', 'good', 'bridge', 'involved', 'fasten', 'join', 'network', 'gathering', 'hospitality', 'flight', 'twins',
-    ''],
+    'bad', 'good', 'bridge', 'involved', 'fasten', 'join', 'network', 'gathering', 'hospitality', 'flight', 'twins'],
     description: ['definition', 'title', 'characterization', 'explanation', 'explain', 'name', 'details', 'overview',
     'text', 'picture', 'statement', 'summary', 'attributes', 'comment', 'story', 'match', 'matching', 'matches',
     'adjective', 'idea', 'suspect', 'about', 'transcript', 'parapgraph', 'type', 'write', 'intro', 'page', 'summary',
@@ -148,7 +147,7 @@ const wordPool = {
     'family', 'brother', 'sister', 'friends', 'friend', 'feelings', 'significant', 'future', 'boundaries', 'sex', 'emotion', 'emotional',
     'breakup', 'loss', 'trust', 'rift', 'break', 'couple', 'history', 'child', 'parent', 'dynamic', 'tied', 'pair', 'drama', 'close', 'adult',
     'association', 'interdependence', 'interconnection', 'commitement', 'communication', 'teamwork', 'balance', 'date', 'meetup',
-    'cheating','psychology',],
+    'cheating','psychology'],
     beer: ['wine', 'drinks', 'drink', 'beverage', 'wheat', 'brew', 'suds', 'brewery', 'pubs', 'pub', 'pint', 'liver', 'glass', 'bottle',
     'micro', 'drunk', 'piss', 'party', 'drug', 'abuse', 'oktoberfest', 'adult', 'money', 'bar', 'ingest', 'sip', 'bartender', 'consume',
     'brewing', 'fermentation','aficionado', 'craft', 'tasting', 'blend', 'aroma', 'tap', 'cheers', 'shipment', 'delivery','hungover','purchase' ],
@@ -187,11 +186,11 @@ const wordPool = {
     'promotional', 'yearly', 'annual', 'earn', 'merit', 'compensation', 'perk', 'treat', 'dessert'],
     judgment: ['opinion', 'validation', 'decision', 'verdict', 'justice', 'court', 'jury', 'law', 'ruling', 'gossip', 'estimate', 'estimation',
     'mind', 'final', 'sound', 'guilty', 'innocent', 'critique', 'feel', 'fear', 'intuition', 'guilt', 'moral', 'characterization', 'correct', 
-    'sentence', 'assessment', 'evaluation', 'analysis', 'conclusion', 'review', 'palate','stares',''],
+    'sentence', 'assessment', 'evaluation', 'analysis', 'conclusion', 'review', 'palate','stares'],
     requirement: ['necessity', 'ratio', 'necessary', 'prerequisite', 'need', 'essential', 'must', 'obligation', 'mandatory', 'responsibility',
     'demand', 'guideline', 'guidelines', 'minimum', 'limit', 'limitation', 'mandate', 'standard', 'standards', 'rules', 'threshold', 'clause', 
     'qualification', 'qualifications', 'condition', 'measure', 'fulfill', 'criteria', 'stipulation', 'needs', 'job', 'basic', 'specification', 
-    'criterion', 'compliance', 'provision',''],
+    'criterion', 'compliance', 'provision'],
     chest: [ 'neck','heart','plate', 'torso', 'back', 'lungs', 'lung', 'breast', 'body', 'box', 'treasure', 'cavity', 'trunk', 'compartment', 
     'loot', 'pirate', 'key', 'skin', 'anatomy', 'wound', 'beat', 'muscle', 'grow', 'pectoral', 'toy', 'tool', 'vault', 'container', 
     'victory', 'reward', 'storage', 'full', 'belly', 'collapse','pacemaker'],
@@ -208,7 +207,7 @@ const wordPool = {
     'pinata','cracking', 'splinter','oven','burn','swords','ship'],
     garbage: ['recycle', 'recycling', 'trash', 'waste', 'landfill', 'rubbish', 'sewage', 'compost', 'debris', 'junk', 'dump', 'dispose', 
     'disposal', 'bin', 'piles', 'bags', 'bag', 'can', 'cans', 'curbside', 'sanitation', 'smell', 'filth', 'clean', 'crap', 'janitor',
-    'truck', 'stink', 'throw', 'toss','pollution', 'rubbish', 'conjecture', 'mess', 'clutter', 'leftover', 'scrap',],
+    'truck', 'stink', 'throw', 'toss','pollution', 'rubbish', 'conjecture', 'mess', 'clutter', 'leftover', 'scrap'],
     response: ['reaction', 'answer', 'reply', 'feedback', 'retort', 'statement', 'comeback', 'counter', 'result', 'rebuttal', 'comment',
     'question', 'post', 'behavior', 'action', 'provoke', 'apology', 'opinion', 'alert', 'excuse', 'interaction', 'email', 'message', 
     'speech', 'clear', 'negative', 'positive', 'reflex', 'assertion', 'postulate', 'impact', 'review', 'commentary'],
@@ -230,14 +229,14 @@ const wordPool = {
     'insight', 'assignment', 'lunchbox', 'sous', 'homeroom','dilation','soldier','knights'],
     weather: ['climate', 'snow', 'wind', 'rain', 'storm', 'sun', 'winter', 'fall', 'atmosphere', 'cold', 'hot', 'air', 'temperature', 
     'bad', 'news', 'forecast','pollution', 'proof','tsunami', 'nature', 'natural', 'spring', 'summer', 'person', 'visibility', 'travel', 'sky', 'meteorology',
-    'pattern', 'season', 'thermostat', 'farm', 'barbecue', 'picnic', 'patio', 'crisis','hurricane',],
+    'pattern', 'season', 'thermostat', 'farm', 'barbecue', 'picnic', 'patio', 'crisis','hurricane'],
     dragon: ['wind','order', 'fire','burn', 'lizard', 'fly', 'flight', 'wings','throne', 'beast', 'creature', 'legend', 'magic', 'magical', 'knights', 'kings', 
     'dungeon', 'mythical', 'big', 'scales', 'tail', 'egg', 'sky', 'treasure', 'large', 'lord', 'mythology', 'fantasy', 'folklore', 'death',
     'adventure','myth', 'quest', 'scroll','smoke','swords', 'hoard','lochness', 'feast', 'roast', 'landing', 'land','tales','tails','green'],
     ocean: ['big','pollution', 'sea', 'vast', 'water', 'beach','lochness', 'shore', 'salt', 'waves', 'blue', 'creatures', 'whale', 'fish', 'mermaid', 'currents', 
     'boat', 'ship', 'travel', 'floor', 'eyes', 'world', 'large', 'fear', 'shark', 'moon', 'current', 'depth', 'wave', 'tide', 'voyage',
     'maritime','battleship', 'navigation','cannons','marine', 'wrecks', 'horizon', 'exploration', 'nautical', 'litter', 'discovery', 'seafood', 'shipment', 'port','cruise','yacht',
-    'tsunami','hurricane','beach','pollution','treasure',],
+    'tsunami','hurricane','beach','pollution','treasure'],
     war: ['wounds', 'wound','human', 'military', 'fight', 'combat', 'battle', 'conflict', 'struggle', 'peace', 'invasion', 'weapon', 'death', 'crisis', 
     'campaign', 'civil', 'world', 'strategy', 'zone', 'nuclear', 'cold', 'machine', 'violence', 'win', 'lose', 'declare', 'anti', 'army', 
     'soldier', 'lord', 'aftermath', 'destruction', 'prisoner', 'art', 'tactics', 'tactic', 'doctrine', 'victory', 'defeat', 'blueprint',
@@ -269,45 +268,36 @@ const messageEl = document.querySelector("#message")
 const playAgainBtn = document.getElementById("reset")
 const helpSpyBtn = document.getElementById("help")
 const countdownEl = document.getElementById("countdown")
+const choiceOne = document.getElementById('#one')
+const choiceTwo = document.getElementById('#two')
+const choiceThree = document.getElementById('#three')
+
 
 
 
 /*-------------------------------- Functions --------------------------------*/
 
-//const pullWords = () => {
-    let wordsUsed = Object.keys(wordPool)
+// function pullWords(arr) {
+    const wordsUsed = Object.keys(wordPool)
     for (i = 0; wordsUsedGame.length < 16; i++ ) {
     let randomIndex = Math.floor(Math.random() * wordsUsed.length)
         if (!wordsUsedGame.includes(wordsUsed[randomIndex])) {
             wordsUsedGame.push(wordsUsed[randomIndex])
         } else {}
-      //  console.log(wordsUsed[randomIndex])
-       // console.log(wordsUsedGame);
-    
     }
-
 
 // const assignWords = (wordsUsedGame) => {
     for ( i = 0; winningWords.length + bystanderWords.length + assassinWords.length < 16; i++) {
-    let randomGameIndex = Math.floor(Math.random() * wordsUsedGame.length)
-        if ((!winningWords.includes(wordsUsedGame[randomGameIndex])) && winningWords.length < 8) {
-            winningWords.push(wordsUsedGame[randomGameIndex])
-        } else if ((!bystanderWords.includes(wordsUsedGame[randomGameIndex])) && (!winningWords.includes(wordsUsedGame[randomGameIndex])) && bystanderWords.length < 7) {
-                bystanderWords.push(wordsUsedGame[randomGameIndex])} 
-                else if ((!bystanderWords.includes(wordsUsedGame[randomGameIndex])) && (!winningWords.includes(wordsUsedGame[randomGameIndex])))
+    let randomIndex = Math.floor(Math.random() * wordsUsedGame.length)
+        if ((!winningWords.includes(wordsUsedGame[randomIndex])) && winningWords.length < 8) {
+            winningWords.push(wordsUsedGame[randomIndex])
+        } else if ((!bystanderWords.includes(wordsUsedGame[randomIndex])) && (!winningWords.includes(wordsUsedGame[randomIndex])) && bystanderWords.length < 7) {
+                bystanderWords.push(wordsUsedGame[randomIndex])} 
+                else if ((!bystanderWords.includes(wordsUsedGame[randomIndex])) && (!winningWords.includes(wordsUsedGame[randomIndex])))
         {
-            assassinWords.push(wordsUsedGame[randomGameIndex])
+            assassinWords.push(wordsUsedGame[randomIndex])
         }
-        // console.log(wordsUsedGame[randomGameIndex])
     }
-    // console.log(winningWords)
-    // console.log(bystanderWords)
-    // console.log(assassinWords)
-
-//const groupClueWords = () => {
-    // if (wordPool.includes(winningWords)) {
-    //     let clueWords = Object.values(wordPool)
-    // }
 
     winningWords.forEach((winningWord) => {
         if (Object.keys(wordPool).includes(winningWord)) {
@@ -326,53 +316,46 @@ const countdownEl = document.getElementById("countdown")
             assassinClueWords.push(wordPool[assassinWord])
         }
     })
-        wordsUsedGame.forEach((wordUsedGame) => {
-            if (Object.keys(wordPool).includes(wordUsedGame)) {
-        allClueWords.push(wordPool[wordUsedGame])
-    }
-    })
-
-    allClues = allClueWords.flat()
-    const clueWordCount = {}
-    allClues.forEach((clueWord) => {
-        if (clueWordCount[clueWord]) {
-            clueWordCount[clueWord]++
-        } else {
-            clueWordCount[clueWord] = 1
-        }
-    })
-   
-    // const pickClueWord = () => {
-    //     if (btn.addEventListener = 3) {
-                
-    //     } else if (btn.addEventListener = 2) {
-      //  }
-    // }    else if (btn.addEventListener = 1) {
-                
-    //}
-
-    if (Object.values(clueWordCount) > 1) {
-        console.log(clueWordCount);
-        }
-        console.log(clueWordCount);
-
-        // if (Object.values(clueWordCount > 1)) {
-        // console.log(clueWordCount);
-        // }
 
 
-    console.log(allClues);
-    console.log(allClueWords);
-    console.log(assassinClueWords);
-    console.log(assassinWords);
-    console.log(bystanderClueWords);
-    console.log(bystanderWords);
-    console.log(winningClueWords);
-    console.log(winningWords);
-
+//const groupClueWords = () => {
     
-//}
+    let allWinningClues = winningClueWords.flat()
+    let allBystanderClues = bystanderClueWords.flat()
+    
 
+    let clues = []
+    for (i = 0; i < allWinningClues.length; i++) {
+        let randomIndex = Math.floor(Math.random() * allWinningClues.length)
+        if (!assassinClueWords.includes(allWinningClues[randomIndex]) && !allBystanderClues.includes(allWinningClues[randomIndex])) {
+           clues.push(allWinningClues[randomIndex])
+        } else {}
+    }
+
+        console.log(allWinningClues);
+        console.log(clues);
+        console.log(allBystanderClues);
+        console.log(assassinClueWords);
+
+        const count = {}
+        clues.forEach((word) => {
+            if (count[word]) {
+                count[word] += 1
+            } else {
+                count[word] = 1
+            }
+        })
+       
+
+            let randomIndex = Math.floor(Math.random() * clues.length)
+                if (Object.keys(count).includes(clues[randomIndex])) {
+                   console.log(`Clue: ${clues[randomIndex]}, Words to be Guessed: ${count[clues[randomIndex]]}`)
+                }
+            console.log(clues[randomIndex]);
+            console.log(Object.keys(count));
+            console.log(count);
+            console.log(count[clues[randomIndex]]);
+        
 
     cardEls.forEach((card, idx) => {
         cardEls[idx].textContent = wordsUsedGame[idx]
