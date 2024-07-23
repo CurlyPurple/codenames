@@ -325,17 +325,17 @@ const countdownEl = document.getElementById("countdown")
             assassinClueWords.push(wordPool[assassinWord])
         }
     })
-    wordsUsedGame.forEach((wordUsedGame) => {
-    if (Object.keys(wordPool).includes(wordUsedGame)) {
-        allClueWords.push(wordPool[wordUsedGame])
-    }
-})
+    //     wordsUsedGame.forEach((wordUsedGame) => {
+    //         if (Object.keys(wordPool).includes(wordUsedGame)) {
+    //     allClueWords.push(wordPool[wordUsedGame])
+    // }
+    // })
+       let winningClueWordCount = {}
+        winningClueWords.forEach((winningClueWord) => {
+            winningClueWordCount[winningClueWord] = (winningClueWordCount[winningClueWord] || 0) + 1
+        })
 
-    console.log(clueWordTimes);
-    console.log(allClueWords);
-    //count number of times a certain clueword is present in each word
-     clueWordTimes = 
-
+        console.log(winningClueWordCount);
     console.log(assassinClueWords);
     console.log(assassinWords);
     console.log(bystanderClueWords);
