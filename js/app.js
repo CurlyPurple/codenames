@@ -403,27 +403,37 @@ function cluesDisplayed() {
         messageEl2.textContent =  `Words to be Guessed: ${count[clues[randomIndex]]}`
          }
          wordLink = count[clues[randomIndex]]
+         console.log(count[clues[randomIndex]]);
+        clues = []
+        count = {}
 }
 
 
-
+console.log(allWinningClues);
  console.log(winningWords);
  console.log(assassinWords);
 
 function pickResult(event) {
      pickedCard = parseInt(event.target.id)
         pickedCardResult()
+        unclickable()
         nextTurn()
+       
     }
-console.log(endRound);
-    console.log(wordsLeft);
-    console.log(wordLink);
 
+
+function unclickable() {
+    if (!cardEls.backgroundColor === "white") {
+        return
+    }
+}
 
 function nextTurn() {
     if (endRound) {
         cluesDisplayed()
-    } else{}
+        endRound = false
+        return
+    } else {}
 }
 
 function pickedCardResult() {
@@ -450,7 +460,7 @@ function pickedCardResult() {
           if (wordLink = 0){
             clueEl.textContent = "Great Job! That's it for this Clue"
             rounds = rounds + 1
-            endRound = true
+
             return
           }
        }
