@@ -53,6 +53,11 @@ h1 {
    text-align: center;
 }
 
+#tLClues {
+    text-align: center;
+    color: white;
+}
+
 #one {
     border-radius: 8px;
     width: 3em;
