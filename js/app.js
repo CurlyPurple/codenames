@@ -54,7 +54,7 @@ const wordPool = {
         'CRITIQUE', 'PROVISION', 'ESSENTIAL', 'BELLY', 'BRUNCH', 'CAFE', 'CAMPFIRE', 'SMOKEHOUSE', 'GRILL', 'COMPOST', 'LEFTOVER',
         'SCRAP', 'FUSION', 'EPICUREAN', 'GALA', 'FESTIVAL', 'INGREDIENTS', 'HARVEST', 'LUNCHBOX', 'SOUS', 'BARBECUE', 'PICNIC', 'PATIO',
         'ROAST', 'SEAFOOD', 'FISH', 'MESS'],
-        ARRIVAL: ['DEPARTURE', 'RETURN', 'APPEARANCE', 'LANDING', 'VISIT', 'ANNOUCEMENT', 'TRIP', 'FORECAST', 'ANTICIPATION',
+        ARRIVAL: ['DEPARTURE', 'RETURN', 'APPEARANCE', 'LANDING', 'VISIT', 'ANNOUNCEMENT', 'TRIP', 'FORECAST', 'ANTICIPATION',
         'HOMECOMING', 'INCOMING', 'INCOME', 'ENTRANCE', 'WELCOME', 'PRESENCE', 'IMPENDING', 'BIRTH', 'PREDICTION', 'EXPECTATION',
         'VISITOR', 'LATE', 'SHIPPING', 'DELIVERY', 'CREATION', 'TRAVEL', 'TRAVELLING', 'HOLIDAY', 'FLIGHT', 'RESULT', 'CONCLUSION',
         'DESTINATION', 'ENDPOINT', 'RECEPTION', 'ENTRY', 'BANQUET', 'RECEPTION', 'PARTY', 'BIRTH', 'TERMINAL', 'TRAFFIC', 'SHIPMENT',
@@ -116,7 +116,7 @@ const wordPool = {
         'NEWSROOM', 'REVIEW', 'FOODIE', 'LIVE', 'JOURNALISM','ROMANCE','BAN'],
         CONSEQUENCE: ['RESULT', 'EFFECT', 'RAMIFICATION', 'IMPLICATION', 'IMPACT', 'CHOICE', 'PUNISHMENT', 'AFTERMATH', 'CAUSE', 'ACTION',
         'REPERCUSSION', 'BYPRODUCT', 'RISK', 'ISSUE', 'COST', 'DISCIPLINE', 'EVENT', 'PENALTY', 'PROBLEM', 'DANGER',
-        'BACKLASH', 'STRESS', 'FEAR', 'DAMAGE', 'REGRET', 'SUFFER', 'FAIL', 'FAILURE', 'ENFORCEMENT', 'POLICY', 'DECADENCE',
+        'BACKLASH', 'STRESS', 'FEAR', 'DAMAGE', 'REGRET', 'SUFFER', 'ENFORCEMENT', 'POLICY', 'DECADENCE',
         'DIET', 'FULL', 'HUNGOVER','DEBT','HEARTBREAK','OVERWEIGHT','DEATH','MESS'],
         PIZZA: ['CHEESE', 'FOOD', 'ITALY', 'PEPPERONI', 'TOMATO', 'BREAD', 'SAUCE', 'RESTAURANT', 'OVEN', 'LEFTOVER',
         'SLICE', 'PIE', 'DINNER', 'LUNCH', 'FROZEN', 'PINEAPPLE', 'ITALIAN', 'KITCHEN', 'FREEZER', 'MICROWAVE', 'INGEST',
@@ -236,7 +236,7 @@ const wordPool = {
         OCEAN: ['BIG','POLLUTION', 'SEA', 'VAST', 'WATER', 'BEACH','LOCHNESS', 'SHORE', 'SALT', 'WAVES', 'BLUE', 'CREATURES', 'WHALE', 'FISH', 'MERMAID', 'CURRENTS',
         'BOAT', 'SHIP', 'TRAVEL', 'FLOOR', 'EYES', 'WORLD', 'LARGE', 'FEAR', 'SHARK', 'MOON', 'CURRENT', 'DEPTH', 'WAVE', 'TIDE', 'VOYAGE',
         'MARITIME','BATTLESHIP', 'NAVIGATION','CANNONS','MARINE', 'WRECKS', 'HORIZON', 'EXPLORATION', 'NAUTICAL', 'LITTER', 'DISCOVERY', 'SEAFOOD', 'SHIPMENT', 'PORT','CRUISE','YACHT',
-        'TSUNAMI','HURRICANE','BEACH','POLLUTION','TREASURE'],
+        'TSUNAMI','HURRICANE','BEACH','TREASURE'],
         WAR: ['WOUNDS', 'WOUND','HUMAN', 'MILITARY', 'FIGHT', 'COMBAT', 'BATTLE', 'CONFLICT', 'STRUGGLE', 'PEACE', 'INVASION', 'WEAPON', 'DEATH', 'CRISIS',
         'CAMPAIGN', 'CIVIL', 'WORLD', 'STRATEGY', 'ZONE', 'NUCLEAR', 'COLD', 'MACHINE', 'VIOLENCE', 'WIN', 'LOSE', 'DECLARE', 'ANTI', 'ARMY',
         'SOLDIER', 'LORD', 'AFTERMATH', 'DESTRUCTION', 'PRISONER', 'ART', 'TACTICS', 'TACTIC', 'DOCTRINE', 'VICTORY', 'DEFEAT', 'BLUEPRINT',
@@ -273,19 +273,19 @@ const cardEls = document.querySelectorAll(".card")
 const clueEl = document.querySelector("#tLClues")
 const messageEl = document.querySelector("#message")
 const messageEl2 = document.querySelector("#message2")
-const playAgainBtn = document.getElementById("reset")
+const playAgainBtn = document.getElementById('reset')
 
 
 
 
 /*-------------------------------- Functions --------------------------------*/
 
-
+init()
 
 function init() {
     cardEls.textContent = ''
     gameOver = false
-    rounds = 0
+    rounds = 4
     wordsLeft = 8
     endRound = false
    
@@ -293,12 +293,13 @@ function init() {
 }
 
 
-pullWords(wordPool)
-assignWords()
-groupAll()
-cardDisplay()
-cluesDisplayed()
-
+function start() {
+    pullWords(wordPool)
+    assignWords()
+    groupAll()
+    cardDisplay()
+    cluesDisplayed()
+    }
 
 function gameCheck() {
     if (wordsLeft < 1 || Rounds > 4) {
@@ -306,20 +307,6 @@ function gameCheck() {
     } else {}
 }
 
-
-
-// function render() {
-//     updateBoard()
-   
-// }
-
-
-// function updateBoard() {
-//     cardEls.forEach((card, idx) => {
-//         cardEls[idx].textContent = wordsUsedGame[idx]
-//         cardEls[idx].addEventListener('click',getPickedCard)
-//     });
-// }
 
 
 function pullWords(wordPool) {
@@ -384,9 +371,8 @@ function groupAll() {
 
 function cluesDisplayed() {
     for (i = 0; i < allWinningClues.length; i++) {
-        let randomIndex = Math.floor(Math.random() * allWinningClues.length)
-        if (!assassinClueWords.includes(allWinningClues[randomIndex]) && !allBystanderClues.includes(allWinningClues[randomIndex])) {
-             clues.push(allWinningClues[randomIndex])
+        if (!assassinClueWords.includes(allWinningClues[i]) && !allBystanderClues.includes(allWinningClues[i])) {
+             clues.push(allWinningClues[i])
         
         }
     }
@@ -403,9 +389,15 @@ function cluesDisplayed() {
         messageEl2.textContent =  `Words to be Guessed: ${count[clues[randomIndex]]}`
          }
          wordLink = count[clues[randomIndex]]
+         console.log(count);
+         console.log(randomIndex);
+         console.log(count[clues[randomIndex]]);
+         console.log(allWinningClues);
+         console.log(clues);
          console.log(count[clues[randomIndex]]);
         clues = []
         count = {}
+    
 }
 
 
@@ -414,19 +406,23 @@ console.log(allWinningClues);
  console.log(assassinWords);
 
 function pickResult(event) {
-     pickedCard = parseInt(event.target.id)
+      pickedCard = parseInt(event.target.id)
         pickedCardResult()
-        unclickable()
+        playAgainBtn.textContent = "Next Clue"
+        if (cardEls.backgroundColor !== "white") {
+           return
+        }
         nextTurn()
        
     }
 
+// function changeBtn () {
+//     if (cardEls[pickedCard].style.backgroundColor = "#F24236") {
+//         playAgainBtn.textContent = "Next Clue"
+//     }
+// }
 
-function unclickable() {
-    if (!cardEls.backgroundColor === "white") {
-        return
-    }
-}
+
 
 function nextTurn() {
     if (endRound) {
@@ -475,4 +471,4 @@ function cardDisplay() {
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-playAgainBtn.addEventListener('click', pullWords(wordPool))
+playAgainBtn.addEventListener('click', start)
