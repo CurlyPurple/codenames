@@ -258,52 +258,68 @@ let assassinClueWords =[]
 let wordsUsedGame =[]
 let allBystanderClues =[]
 let allWinningClues =[]
-let allClueWords
-let allClues
-let winningsClues
-let board
-let message
 let clues = []
  let count = {}
 let pickedCard
+let wordsLeft
+let rounds
+let wordLink
+let endRound
+let gameOver
 
 
 /*------------------------ Cached Element References ------------------------*/
 const cardEls = document.querySelectorAll(".card")
 const clueEl = document.querySelector("#tLClues")
 const messageEl = document.querySelector("#message")
+const messageEl2 = document.querySelector("#message2")
 const playAgainBtn = document.getElementById("reset")
-const choiceOne = document.getElementById('#one')
-const choiceTwo = document.getElementById('#two')
-const choiceThree = document.getElementById('#three')
 
 
 
 
 /*-------------------------------- Functions --------------------------------*/
 
-init()
+
 
 function init() {
-    
+    cardEls.textContent = ''
     gameOver = false
-    cardEls.forEach((card, idx) => {
-        cardEls[idx].textContent = " "
-    })
+    rounds = 0
+    wordsLeft = 8
+    endRound = false
+   
     // render()
 }
 
-function render() {
-    updateBoard()
-   
+
+pullWords(wordPool)
+assignWords()
+groupAll()
+cardDisplay()
+cluesDisplayed()
+
+
+function gameCheck() {
+    if (wordsLeft < 1 || Rounds > 4) {
+        gameOver = true
+    } else {}
 }
 
-function updateBoard() {
-    cardEls.forEach((card, idx) => {
-        cardEls[idx].textContent = wordsUsedGame[idx]
-        cardEls[idx].addEventListener('click',getPickedCard)
-    });
-}
+
+
+// function render() {
+//     updateBoard()
+   
+// }
+
+
+// function updateBoard() {
+//     cardEls.forEach((card, idx) => {
+//         cardEls[idx].textContent = wordsUsedGame[idx]
+//         cardEls[idx].addEventListener('click',getPickedCard)
+//     });
+// }
 
 
 function pullWords(wordPool) {
@@ -316,9 +332,9 @@ function pullWords(wordPool) {
     }
 }
 
-pullWords(wordPool)
 
-// function assignWords() {
+
+function assignWords() {
     for ( i = 0; winningWords.length + bystanderWords.length + assassinWords.length < 16; i++) {
     let randomIndex = Math.floor(Math.random() * wordsUsedGame.length)
         if ((!winningWords.includes(wordsUsedGame[randomIndex])) && winningWords.length < 8) {
@@ -330,42 +346,43 @@ pullWords(wordPool)
              assassinWords.push(wordsUsedGame[randomIndex])
         }
     }
-// }
+}
 
 
-//  function groupWClueWords() {
+
+ function groupWClueWords() {
     winningWords.forEach((winningWord) => {
         if (Object.keys(wordPool).includes(winningWord)) {
             winningClueWords.push(wordPool[winningWord])
             
         }
     }) 
-   
-// }  
-allWinningClues = winningClueWords.flat()
-
-console.log(allWinningClues);
+    allWinningClues = winningClueWords.flat()
+}  
 function groupBClueWords() {
     bystanderWords.forEach((bystanderWord) => {
         if (Object.keys(wordPool).includes(bystanderWord)) {
               bystanderClueWords.push(wordPool[bystanderWord])
         }
     })
-    let allBystanderClues = bystanderClueWords.flat()
+     allBystanderClues = bystanderClueWords.flat()
 }
-
-
-
-// function groupAClueWords() {
+function groupAClueWords() {
     assassinWords.forEach((assassinWord) => {
         if (Object.keys(wordPool).includes(assassinWord)) {
                assassinClueWords.push(wordPool[assassinWord])
         }
     })
-// }
+}
+
+function groupAll() {
+    groupWClueWords()
+    groupBClueWords()
+    groupAClueWords()
+}
 
 
-// function cluesDisplayed() {
+function cluesDisplayed() {
     for (i = 0; i < allWinningClues.length; i++) {
         let randomIndex = Math.floor(Math.random() * allWinningClues.length)
         if (!assassinClueWords.includes(allWinningClues[randomIndex]) && !allBystanderClues.includes(allWinningClues[randomIndex])) {
@@ -373,7 +390,6 @@ function groupBClueWords() {
         
         }
     }
-
         clues.forEach((word) => {
             if (count[word]) {
                 count[word] += 1
@@ -381,43 +397,72 @@ function groupBClueWords() {
                 count[word] = 1
             }
         })
-       
     let randomIndex = Math.floor(Math.random() * clues.length)
         if (Object.keys(count).includes(clues[randomIndex])) {
-           messageEl.textContent = `Clue: ${clues[randomIndex]}, Words to be Guessed: ${count[clues[randomIndex]]}`
-           console.log(messageEl);
+           messageEl.textContent = `Clue: ${clues[randomIndex]}`
+        messageEl2.textContent =  `Words to be Guessed: ${count[clues[randomIndex]]}`
          }
-// }
- console.log(winningWords);
+         wordLink = count[clues[randomIndex]]
+}
 
-function getPickedCard(event) {
+
+
+ console.log(winningWords);
+ console.log(assassinWords);
+
+function pickResult(event) {
      pickedCard = parseInt(event.target.id)
-     console.log(pickedCard);
-     if (assassinWords.includes(wordsUsedGame[pickedCard])) {
-        clueEl.textContent = `Unfortunately ${wordsUsedGame[pickedCard]} is the Assassin Card. Game Over!`
+        pickedCardResult()
+        nextTurn()
+    }
+console.log(endRound);
+    console.log(wordsLeft);
+    console.log(wordLink);
+
+
+function nextTurn() {
+    if (endRound) {
+        cluesDisplayed()
+    } else{}
+}
+
+function pickedCardResult() {
+    if (assassinWords.includes(wordsUsedGame[pickedCard])) {
+        clueEl.textContent = `Unfortunately ${wordsUsedGame[pickedCard]} is the Assassin Card`
+        cardEls[pickedCard].style.backgroundColor = "#2B2D42";
+        cardEls[pickedCard].textContent = "Game Over!"
+        cardEls[pickedCard].style.color = "white";
+        gameOver = true
+        return
        } else if (bystanderWords.includes((wordsUsedGame[pickedCard]))) {
-        clueEl.textContent = `Ooh! ${wordsUsedGame[pickedCard]} is a Bystander Card. Round Over! Next Clue`
+        clueEl.textContent = `Ooh! ${wordsUsedGame[pickedCard]} is a Bystander Card. Round Over!`
+        cardEls[pickedCard].style.backgroundColor = "#F24236";
+        cardEls[pickedCard].style.color = "white";
+        rounds = rounds + 1
+        endRound = true
+        return
        } else if (winningWords.includes((wordsUsedGame[pickedCard]))) {
         clueEl.textContent = `${wordsUsedGame[pickedCard]} is right! Great Job!`
+        cardEls[pickedCard].style.backgroundColor = "#71B340";
+        cardEls[pickedCard].style.color = "white";
+          wordsLeft = wordsLeft - 1
+          wordLink = wordLink - 1
+          if (wordLink = 0){
+            clueEl.textContent = "Great Job! That's it for this Clue"
+            rounds = rounds + 1
+            endRound = true
+            return
+          }
        }
-    }
-        
+}
+
+function cardDisplay() {
     cardEls.forEach((card, idx) => {
         cardEls[idx].textContent = wordsUsedGame[idx]
-        cardEls[idx].addEventListener('click',getPickedCard)
+        cardEls[idx].addEventListener('click',pickResult)
     })
+}
 
-//     const play = (event) => {
-//         pullWords(wordPool)
-//         assignWords()
-//         groupWClueWords()
-//         groupBClueWords()
-//         groupAClueWords()
-//         // cluesDisplayed()
-//         getPickedCard()
-//     }
-//  play()
+
 /*----------------------------- Event Listeners -----------------------------*/
-
-// cardEls.addEventListener('click', getPickedCard)
-// document.querySelector('#reset').addEventListener('click', play)
+playAgainBtn.addEventListener('click', pullWords(wordPool))

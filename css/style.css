@@ -16,6 +16,11 @@ h1 {
     text-align: center;
     
 }
+
+#message2 {
+    color: white;
+    text-align: center;
+}
 #reset {
     font-weight: bold;
     padding: 10px;
