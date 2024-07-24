@@ -263,7 +263,7 @@ let winningsClues
 let board
 let message
 let clues = []
- let count = []
+ let count = {}
 let pickedCard
 
 
@@ -286,7 +286,10 @@ init()
 function init() {
     
     gameOver = false
-    render()
+    cardEls.forEach((card, idx) => {
+        cardEls[idx].textContent = ""
+    })
+    // render()
 }
 
 function render() {
