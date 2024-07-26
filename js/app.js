@@ -399,22 +399,15 @@ function cluesDisplayed() {
         count = {}
     
 }
-
+console.log(winningWords);
+console.log(bystanderWords);
+console.log(assassinWords);
 
 console.log(allWinningClues);
  console.log(winningWords);
  console.log(assassinWords);
 
-function pickResult(event) {
-      pickedCard = parseInt(event.target.id)
-        pickedCardResult()
-        playAgainBtn.textContent = "Next Clue"
-        if (cardEls.backgroundColor !== "white") {
-           return
-        }
-        nextTurn()
-       
-    }
+
 
 // function changeBtn () {
 //     if (cardEls[pickedCard].style.backgroundColor = "#F24236") {
@@ -431,6 +424,17 @@ function nextTurn() {
         return
     } else {}
 }
+
+function pickResult(event) {
+    pickedCard = parseInt(event.target.id)
+      pickedCardResult()
+      playAgainBtn.textContent = "Next Clue"
+      if (cardEls.backgroundColor !== "white") {
+         return
+      }
+      nextTurn()
+     
+  }
 
 function pickedCardResult() {
     if (assassinWords.includes(wordsUsedGame[pickedCard])) {
